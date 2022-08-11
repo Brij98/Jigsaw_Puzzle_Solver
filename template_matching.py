@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 def main():
     print("Template Matching")
     main_image = cv.imread('TestData/img1.jpg', 0)
-    main_image_copy = main_image.copy()
+    # main_image_copy = main_image.copy()
     template = cv.imread('TestData/img1t2.jpg', 0)
     template_w, template_h = template.shape[::-1]
 
@@ -16,7 +16,7 @@ def main():
         img = main_image.copy()
 
         result = cv.matchTemplate(img, template, eval(method))
-        print(method, ": ", result)   # debug
+        # print(method, ": ", result)   # debug
         minVal, maxVal, minLoc, maxLoc = cv.minMaxLoc(result)
 
         if eval(method) in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:
